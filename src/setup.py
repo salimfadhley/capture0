@@ -2,7 +2,7 @@ import os
 from setuptools import setup
 
 PROJECT_ROOT, _ = os.path.split(__file__)
-REVISION = '0.0.5'
+REVISION = '0.0.6'
 PROJECT_NAME = 'capture0'
 PROJECT_AUTHORS = "Salim Fadhley"
 PROJECT_EMAILS = 'salimfadhley@gmail.com'
