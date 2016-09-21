@@ -1,3 +1,12 @@
 language: python
 python:
 - '3.5'
+deploy:
+  provider: pypi
+  user: salimfadhley
+  password:
+    secure: AjOTtqKMFiSGp+vBpjE833Ae2i5k1wjVbEgCpuzNSGR9myj3c8dYOW1kbyq21HrGeD0sbCBuNuDJCwwM1EqpDBhq/YIxMtLZVsrQfbTI9tiUHAgLmaz0QZOjCvUa4pKuj3CUML3uoJFjZk0psZeLfsyiFuYiFmxdMM9SiOAJGEXIi62X09BdFTL8DugsF49o3SekhJq2XPh7C0rPWQiVAlq+uayVzEyM8cCQr4+ywV6Ko7B6akbPeIDxEnZ1Ksq97PlHEgTCsejRsum/iRbSX03+fd9srYZLvU30nLzEMr/oM9jBeXTNzCbMqaQnUwE0diKPKXBTqd2LDqu6NwXrZOSReBoNrQnO3luf0RQZ90BhgKw84FwssCMJ24EaMADXJD/jyI8ms/EfxXJjzepnWXF5nfFN0ku23xhijj7+Acr9V4lXDchzFHvXQO5wlXiYXxLF84AoF4FQoZky8A7XWIkV0hUqIAGnDtrFnGgbJvPIfJ3pEHRxZQQF3CdEjCxLCL5DHCD6SUikiKGeP756mrubZXP095eM3ncEoMofe91hKuAF8lAQcbmcqJwnZUwQZrGD7UN0AzOWSVcjmj3aFmAlxj5d+NyP+bHmW+ZzZwfH9BL0WS118fn8FObsuXtAMxRKTEWjE3Pu4plDkla/LfOFt5njlIjp/j2jfu6jjTQ=
+  on:
+    tags: false
+    distributions: sdist bdist_wheel bdist_egg
+    repo: salimfadhley/capture0

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import os
 
 PROJECT_ROOT, _ = os.path.split(__file__)
-REVISION = '0.0.1'
+REVISION = '0.0.2'
 PROJECT_NAME = 'capture0'
 PROJECT_AUTHORS = "Salim Fadhley"
 PROJECT_EMAILS = 'salimfadhley@gmail.com'
@@ -23,7 +23,7 @@ setup(
     packages=find_packages(PROJECT_ROOT),
     zip_safe=True,
     include_package_data=False,
-    install_requires=['click'],
+    install_requires=['click', 'flask'],
     test_suite='nose.collector',
     tests_require=['mock', 'nose', 'coverage', 'unittest2'],
     entry_points=GLOBAL_ENTRY_POINTS,
