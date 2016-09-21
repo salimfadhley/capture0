@@ -1,6 +1,6 @@
 from setuptools import setup
 
-REVISION = '0.0.8'
+REVISION = '0.0.9'
 PROJECT_AUTHORS = "Salim Fadhley"
 PROJECT_EMAILS = 'salimfadhley@gmail.com'
 PROJECT_URL = "https://github.com/salimfadhley/capture0"
