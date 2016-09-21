@@ -1,7 +1,7 @@
 import copy
 import os
 import logging
-import datetime
+import click
 import json
 import uuid
 from typing import Mapping
@@ -46,10 +46,12 @@ def save(dataset):
 
     return make_response("OK")
 
-def main():
+@click.command()
+@click.option("--port", default=59892, help="Which port should the server run on?")
+def main(port):
     logging.basicConfig()
     logging.getLogger("").setLevel(logging.INFO)
-    app.run()
+    app.run(port=port)
 
 if __name__ == '__main__':
     main()
