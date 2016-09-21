@@ -1,5 +1,5 @@
 import os
-from setuptools import setup, find_packages
+from setuptools import setup
 
 PROJECT_ROOT, _ = os.path.split(__file__)
 REVISION = '0.0.5'
@@ -20,7 +20,7 @@ setup(
     version=REVISION,
     author=PROJECT_AUTHORS,
     author_email=PROJECT_EMAILS,
-    packages=find_packages(PROJECT_ROOT),
+    package="capture0",
     zip_safe=True,
     include_package_data=False,
     install_requires=['click', 'flask'],
