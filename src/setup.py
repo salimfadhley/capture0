@@ -1,8 +1,8 @@
-from setuptools import setup, find_packages
 import os
+from setuptools import setup, find_packages
 
 PROJECT_ROOT, _ = os.path.split(__file__)
-REVISION = '0.0.4'
+REVISION = '0.0.5'
 PROJECT_NAME = 'capture0'
 PROJECT_AUTHORS = "Salim Fadhley"
 PROJECT_EMAILS = 'salimfadhley@gmail.com'
