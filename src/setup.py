@@ -1,9 +1,6 @@
-import os
 from setuptools import setup
 
-PROJECT_ROOT, _ = os.path.split(__file__)
-REVISION = '0.0.6'
-PROJECT_NAME = 'capture0'
+REVISION = '0.0.8'
 PROJECT_AUTHORS = "Salim Fadhley"
 PROJECT_EMAILS = 'salimfadhley@gmail.com'
 PROJECT_URL = "https://github.com/salimfadhley/capture0"
@@ -16,13 +13,13 @@ GLOBAL_ENTRY_POINTS = {
 }
 
 setup(
-    name=PROJECT_NAME.lower(),
+    name="capture0",
     version=REVISION,
     author=PROJECT_AUTHORS,
     author_email=PROJECT_EMAILS,
     package="capture0",
     zip_safe=True,
-    include_package_data=False,
+    include_package_data=True,
     install_requires=['click', 'flask'],
     test_suite='nose.collector',
     tests_require=['mock', 'nose', 'coverage', 'unittest2'],

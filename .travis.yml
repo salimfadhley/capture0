@@ -1,14 +1,19 @@
 language: python
+
 python:
 - '3.5'
+
 install:
 - pip install nose
 - pip install -e src
+
 script:
 - cd src
 - nosetests
+
 after_success:
-- cd src
+- - python setup.py sdist bdist_wheel bdist_egg
+
 deploy:
   provider: pypi
   user: salimfadhley
