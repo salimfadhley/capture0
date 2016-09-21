@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import os
 
 PROJECT_ROOT, _ = os.path.split(__file__)
-REVISION = '0.0.3'
+REVISION = '0.0.4'
 PROJECT_NAME = 'capture0'
 PROJECT_AUTHORS = "Salim Fadhley"
 PROJECT_EMAILS = 'salimfadhley@gmail.com'
@@ -12,7 +12,7 @@ SHORT_DESCRIPTION = 'A tool for capturing data from the web.'
 DESCRIPTION = SHORT_DESCRIPTION
 
 GLOBAL_ENTRY_POINTS = {
-    "console_scripts": ["capture0=capture0.capture0:main"]
+    "console_scripts": ["capture0=capture0.main:main"]
 }
 
 setup(

@@ -47,7 +47,7 @@ def save(dataset):
     return make_response("OK")
 
 @click.command()
-@click.option("--port", default=59892, help="Which port should the server run on?")
+@click.option("--port", default=59893, help="Which port should the server run on?")
 def main(port):
     logging.basicConfig()
     logging.getLogger("").setLevel(logging.INFO)
