@@ -1,6 +1,6 @@
 from setuptools import setup
 
-REVISION = '0.0.9'
+REVISION = '0.0.10'
 PROJECT_AUTHORS = "Salim Fadhley"
 PROJECT_EMAILS = 'salimfadhley@gmail.com'
 PROJECT_URL = "https://github.com/salimfadhley/capture0"
@@ -17,7 +17,7 @@ setup(
     version=REVISION,
     author=PROJECT_AUTHORS,
     author_email=PROJECT_EMAILS,
-    package="capture0",
+    packages=["capture0", "capture0_tests"],
     zip_safe=True,
     include_package_data=True,
     install_requires=['click', 'flask'],

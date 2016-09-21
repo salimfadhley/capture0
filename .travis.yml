@@ -5,14 +5,14 @@ python:
 
 install:
 - pip install nose
-- pip install -e src
+- cd src
+- python setup.py develop
 
 script:
-- cd src
-- nosetests
+- python setup.py test
 
 after_success:
-- - python setup.py sdist bdist_wheel bdist_egg
+- python clean setup.py sdist bdist_wheel bdist_egg
 
 deploy:
   provider: pypi
