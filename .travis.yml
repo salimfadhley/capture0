@@ -1,25 +1,19 @@
 language: python
-
 python:
 - '3.5'
-
 install:
-  - pip install nose
-  - pip install -e src
-
+- pip install nose
+- pip install -e src
 script:
-  - cd src
-  - nosetests
-
+- cd src
+- nosetests
 after_success:
-  - cd src
-
+- cd src
 deploy:
   provider: pypi
   user: salimfadhley
   password:
-    secure: AjOTtqKMFiSGp+vBpjE833Ae2i5k1wjVbEgCpuzNSGR9myj3c8dYOW1kbyq21HrGeD0sbCBuNuDJCwwM1EqpDBhq/YIxMtLZVsrQfbTI9tiUHAgLmaz0QZOjCvUa4pKuj3CUML3uoJFjZk0psZeLfsyiFuYiFmxdMM9SiOAJGEXIi62X09BdFTL8DugsF49o3SekhJq2XPh7C0rPWQiVAlq+uayVzEyM8cCQr4+ywV6Ko7B6akbPeIDxEnZ1Ksq97PlHEgTCsejRsum/iRbSX03+fd9srYZLvU30nLzEMr/oM9jBeXTNzCbMqaQnUwE0diKPKXBTqd2LDqu6NwXrZOSReBoNrQnO3luf0RQZ90BhgKw84FwssCMJ24EaMADXJD/jyI8ms/EfxXJjzepnWXF5nfFN0ku23xhijj7+Acr9V4lXDchzFHvXQO5wlXiYXxLF84AoF4FQoZky8A7XWIkV0hUqIAGnDtrFnGgbJvPIfJ3pEHRxZQQF3CdEjCxLCL5DHCD6SUikiKGeP756mrubZXP095eM3ncEoMofe91hKuAF8lAQcbmcqJwnZUwQZrGD7UN0AzOWSVcjmj3aFmAlxj5d+NyP+bHmW+ZzZwfH9BL0WS118fn8FObsuXtAMxRKTEWjE3Pu4plDkla/LfOFt5njlIjp/j2jfu6jjTQ=
+    secure: WBZnaIlmn/2EfTpacdjw+mHhplT1LGXnt/nb9DAmJLck5c2ghM/VooyuuM/8nOUK2QujRazOc4m7NIFOSrLmpPOF3/9ynTO5BW8YdiVeqUaH5OOCJFi/ZaEWNxxGgEl5SftPV1hr34HT/DJ8B2H9hozFjgzK9UxoEXejmjnvpUKwxkI6c09ha1pyScmxtSqbVomijbeDmYoObZFg3AQ8aHmDpyCJrzn998+bLpZkkbnX1X1fVozfBnwev+bCyv6qVcYz0bK1KBgdjXgvIRaybkLBU83wXdUv7uinGeWuJ/nO9+J4URHKTkpewkNKHBWQPlH8yf5XJ0ivZOWnxIVdnQX23hGmimkU/WwFn6J55tVSjeF27qNLv5bft4EPj75DiBlUjCZFpZtP7xFVL++wFAZHa+cyqxdKHFsf7z5baA+LoWOZufZd0wgOOUmiID48K1fr2mkJDE0SRGZLLcr1x3W5ePSdIAKMI6ZMlBciTKqxmUD2w9ogsmKmYn7TTMCqASrX1Ouv28Qbko+sClOTaqT9ECjTYPnTj+BemQRvTSnetV6By7RQu7q2FH0TU6AiYiSLEWzUvi7jS55XhrLPoZO/hAoJBq+4hyD5EsRA8tamAXhHmdwdyi2O1k+s3vGAEgSR8/eMNj/j3i/jSU+RrMjZPnZ5SpvXKI0Am8S43nw=
   on:
-    tags: false
-    distributions: sdist bdist_wheel bdist_egg
+    distributions: sdist bdist_wheel
     repo: salimfadhley/capture0
