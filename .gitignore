@@ -1,3 +1,7 @@
 *.iml
 .idea
 venv
+src/*.egg-info/
+static/
+src/build/
+src/dist/
