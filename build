@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 cd site
 gulp build
-
+cd ..
+cp -rv ./site/dist ./src/capture0_static/
 pip install -e src

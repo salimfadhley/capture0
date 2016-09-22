@@ -5,3 +5,5 @@ src/*.egg-info/
 static/
 src/build/
 src/dist/
+.gitignore
+__pycache__/

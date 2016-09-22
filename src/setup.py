@@ -17,7 +17,7 @@ setup(
     version=REVISION,
     author=PROJECT_AUTHORS,
     author_email=PROJECT_EMAILS,
-    packages=["capture0", "capture0_tests"],
+    packages=["capture0", "capture0_static"],
     zip_safe=True,
     include_package_data=True,
     install_requires=['click', 'flask'],
