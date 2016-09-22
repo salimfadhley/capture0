@@ -8,8 +8,8 @@ bumpversion patch src/setup.py
 git push --tags
 source ./build
 git commit -am "updated static stuff"
-git push
 cd src
 python setup.py bdist_egg bdist_wheel upload
+git push
 
 
