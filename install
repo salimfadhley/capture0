@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
+cd site
+gulp build
+
 pip install -e src
