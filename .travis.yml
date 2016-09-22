@@ -8,7 +8,9 @@ install:
 - ./build
 
 script:
+- cd src
 - python setup.py test
+
 
 after_success:
 - python clean setup.py sdist bdist_wheel bdist_egg
