@@ -1,6 +1,6 @@
 from setuptools import setup
 
-REVISION = '0.0.12'
+__VERSION__ = '0.0.12'
 PROJECT_AUTHORS = "Salim Fadhley"
 PROJECT_EMAILS = 'salimfadhley@gmail.com'
 PROJECT_URL = "https://github.com/salimfadhley/capture0"
@@ -14,7 +14,7 @@ GLOBAL_ENTRY_POINTS = {
 
 setup(
     name="capture0",
-    version=REVISION,
+    version=__VERSION__,
     author=PROJECT_AUTHORS,
     author_email=PROJECT_EMAILS,
     packages=["capture0", "capture0_static"],
