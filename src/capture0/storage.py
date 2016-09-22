@@ -6,6 +6,7 @@ from typing import Mapping
 
 from capture0.config import CONFIG
 
+log = logging.getLogger(__name__)
 
 def store_data(dataset: str, record: Mapping):
     record = copy.copy(record)
