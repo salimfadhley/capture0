@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 virtualenv ./venv --python=`which python3.5` --clear
-pip install --upgrade bumpversion
 source ./venv/bin/activate
-./install
+pip install --upgrade bumpversion
+./build
