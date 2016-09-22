@@ -10,15 +10,5 @@ script:
 - cd src
 - python setup.py test
 
-
 after_success:
-- python clean setup.py sdist bdist_wheel bdist_egg
-
-deploy:
-  provider: pypi
-  user: salimfadhley
-  password:
-    secure: WBZnaIlmn/2EfTpacdjw+mHhplT1LGXnt/nb9DAmJLck5c2ghM/VooyuuM/8nOUK2QujRazOc4m7NIFOSrLmpPOF3/9ynTO5BW8YdiVeqUaH5OOCJFi/ZaEWNxxGgEl5SftPV1hr34HT/DJ8B2H9hozFjgzK9UxoEXejmjnvpUKwxkI6c09ha1pyScmxtSqbVomijbeDmYoObZFg3AQ8aHmDpyCJrzn998+bLpZkkbnX1X1fVozfBnwev+bCyv6qVcYz0bK1KBgdjXgvIRaybkLBU83wXdUv7uinGeWuJ/nO9+J4URHKTkpewkNKHBWQPlH8yf5XJ0ivZOWnxIVdnQX23hGmimkU/WwFn6J55tVSjeF27qNLv5bft4EPj75DiBlUjCZFpZtP7xFVL++wFAZHa+cyqxdKHFsf7z5baA+LoWOZufZd0wgOOUmiID48K1fr2mkJDE0SRGZLLcr1x3W5ePSdIAKMI6ZMlBciTKqxmUD2w9ogsmKmYn7TTMCqASrX1Ouv28Qbko+sClOTaqT9ECjTYPnTj+BemQRvTSnetV6By7RQu7q2FH0TU6AiYiSLEWzUvi7jS55XhrLPoZO/hAoJBq+4hyD5EsRA8tamAXhHmdwdyi2O1k+s3vGAEgSR8/eMNj/j3i/jSU+RrMjZPnZ5SpvXKI0Am8S43nw=
-  on:
-    distributions: sdist bdist_wheel
-    repo: salimfadhley/capture0
+- python clean
