@@ -5,32 +5,38 @@ from typing import Mapping, Any
 import click
 from capture0.config import CONFIG
 from capture0.storage import store_data
-from flask import Flask, request, make_response, send_from_directory
+from capture0_data.online_handles import get_companies
+import flask
 
 log = logging.getLogger(__name__)
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 
 @app.route('/save/<string:dataset>', methods=["POST"])
 def save(dataset: Mapping[str, Any]):
-    log.info(request.content_type)
-    log.info(request.data)
-    data = json.loads(request.data.decode("UTF-8"))
+    log.info(flask.request.content_type)
+    log.info(flask.request.data)
+    data = json.loads(flask.request.data.decode("UTF-8"))
 
     store_data(dataset, data)
 
-    return make_response("OK")
+    return flask.make_response("OK")
 
 
 @app.route('/')
 def home_page():
-    return send_from_directory(CONFIG["STATIC"], "index.html")
+    return flask.send_from_directory(CONFIG["STATIC"], "index.html")
 
 
 @app.route('/<path:path>')
 def static_content(path):
     log.info("Attempting to serve static content: %s" % path)
-    return send_from_directory(CONFIG["STATIC"], path)
+    return flask.send_from_directory(CONFIG["STATIC"], path)
+
+@app.route('/companies')
+def companies():
+    companies = get_companies()
+    return flask.jsonify([c.company for c in companies])
 
 
 @click.command()

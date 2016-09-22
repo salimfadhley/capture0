@@ -17,7 +17,7 @@ setup(
     version=__VERSION__,
     author=PROJECT_AUTHORS,
     author_email=PROJECT_EMAILS,
-    packages=["capture0", "capture0_static"],
+    packages=["capture0", "capture0_static", "capture0_data"],
     package_data={"capture0_static": ["dist", "dist/*"]},
     zip_safe=False,
     install_requires=['click', 'flask'],
