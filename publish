@@ -4,6 +4,7 @@ git commit -am "automatic commit before build"
 bumpversion patch src/setup.py
 git push --tags
 source ./build
+cd src
 python setup.py bdist_egg bdist_wheel sdist upload
 
 
