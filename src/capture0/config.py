@@ -1,6 +1,6 @@
 import os
+
 import pkg_resources
-import static
 
 THIS_DIR, _ = os.path.split(os.path.abspath(os.path.expanduser(__file__)))
 
