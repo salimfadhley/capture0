@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -x
-set -e
 source ./venv/bin/activate
 git commit -am "automatic commit before build" || true
 bumpversion patch src/setup.py
