@@ -5,7 +5,4 @@ npm install
 gulp build
 cd ..
 cp -rv ./site/dist ./src/capture0_static/
-git commit -am "automatic commit before build"
-git push --tags
-bumpversion patch src/setup.py
 pip install -e src
