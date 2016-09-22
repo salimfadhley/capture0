@@ -20,7 +20,6 @@ setup(
     packages=["capture0", "capture0_static"],
     package_data={"capture0_static": "dist/*"},
     zip_safe=True,
-    include_package_data=True,
     install_requires=['click', 'flask'],
     test_suite='nose.collector',
     tests_require=['mock', 'nose', 'coverage', 'unittest2'],
