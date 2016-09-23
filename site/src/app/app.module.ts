@@ -6,12 +6,14 @@ import {AppComponent} from "./app.component";
 import {routing, appRoutingProviders} from "./app.routing";
 import {HomeComponent} from "./home/home.component";
 import {AboutComponent} from "./about/about.component";
+import {NetworkingService} from "./networking/networking.service"
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
-        AboutComponent
+        AboutComponent,
+        // NetworkingService
     ],
     imports: [
         BrowserModule,

@@ -4,13 +4,11 @@ import pprint
 from typing import Set, Optional
 from urllib.request import urlopen
 
-import cachetools
+import functools
 
 HANDLES_URL = "https://docs.google.com/spreadsheets/d/10wfHtH8aq22IElC2xOswYGf0MEHC-6Kq3p8x7qfs0a8/pub?output=csv"
 
 log = logging.getLogger(__name__)
-
-cache = cachetools.TTLCache(1, 500)
 
 class IndexCompany(object):
     def __init__(self, company: str, index: str, handles: Optional[Set[str]], ticker: Optional[str], reddit_positive: Optional[Set[str]],
@@ -57,12 +55,13 @@ def csv_lines():
             yield line.decode("utf-8")
 
 
+@functools.lru_cache(1)
 def get_companies():
     log.warn("Cache has expired... fetching companies.")
     return list(get_companies_generator())
 
 
-@cachetools.cached(cache)
+
 def get_companies_generator():
     reader = csv.DictReader(csv_lines())
     for row in reader:
