@@ -15,7 +15,7 @@ EMPATHY_CHOICES = [
 
 
 class BaseHomeForm(flask_wtf.Form):
-    name = StringField('name', validators=[DataRequired()])
+    name = StringField('name', description="xxxx", validators=[DataRequired()])
 
 
 def home_form_instance_factory(company_names: typing.List[str]) -> BaseHomeForm:

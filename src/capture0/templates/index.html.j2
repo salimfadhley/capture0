@@ -12,7 +12,7 @@
         {% for field_name, field in form._fields.items() %}
             <div class="form-group">
                 {% if not field.flags.hidden %}
-                    {{ field.label }}
+                    {{ field.description or field.label }}
                 {% endif %}
                 {{ field(size=20) }}
             </div>

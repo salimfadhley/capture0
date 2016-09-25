@@ -1,0 +1,13 @@
+{% extends "layout.html.j2" %}
+
+{% block header %}
+    <h1>Thanks!</h1>
+{% endblock %}
+
+{% block body %}
+    <p>Thanks fof completing the survey. You can <a href="/">do it again</a> if you like.</p>
+
+    <pre>{{ request.__dict__ }}</pre>
+
+
+{% endblock %}

@@ -43,6 +43,11 @@ def home_page():
     return flask.render_template('index.html.j2', form=form)
 
 
+@app.route('/done', methods=["POST"])
+def done():
+    return flask.render_template('done.html.j2', request=flask.request)
+
+
 @app.route('/<path:path>')
 def static_content(path):
     log.info("Attempting to serve static content: %s" % path)
