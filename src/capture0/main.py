@@ -1,6 +1,5 @@
 import json
 import logging
-import random
 import uuid
 from typing import Mapping, Any
 
@@ -9,6 +8,7 @@ import flask
 from capture0.config import CONFIG
 from capture0.forms.home_form import home_form_instance_factory
 from capture0.storage import store_data
+from capture0_data.company_info import get_random_company_names
 from capture0_data.online_handles import get_companies
 
 log = logging.getLogger(__name__)
@@ -29,12 +29,7 @@ def save(dataset: Mapping[str, Any]):
     return flask.make_response("OK")
 
 
-def get_random_company_names():
-    raw_companies = get_companies()
-    random.shuffle(raw_companies)
-    random_companies = raw_companies[:20]
 
-    return [c.company for c in random_companies]
 
 @app.route('/')
 def home_page():

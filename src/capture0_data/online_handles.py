@@ -1,24 +1,22 @@
 import csv
+import functools
 import logging
 import pprint
 from typing import Set, Optional
 from urllib.request import urlopen
 
-import functools
-
-HANDLES_URL = "https://docs.google.com/spreadsheets/d/10wfHtH8aq22IElC2xOswYGf0MEHC-6Kq3p8x7qfs0a8/pub?output=csv"
+HANDLES_URL = "https://docs.google.com/spreadsheets/d/103yky1HqNULD2awB4aZvzazSO8i-aVONWVa5C66XzBo/pub?gid=0&single=true&output=csv"
 
 log = logging.getLogger(__name__)
 
+
 class IndexCompany(object):
-    def __init__(self, company: str, index: str, handles: Optional[Set[str]], ticker: Optional[str], reddit_positive: Optional[Set[str]],
-                 reddit_negative: Optional[Set[str]]):
+    def __init__(self, company: str, display_name: Optional[str], official_name: Optional[str],
+                 handles: Optional[Set[str]]):
         self.company = company
-        self.index = index
+        self.display_name = display_name
         self.handles = handles
-        self.ticker = ticker
-        self.reddit_positive = reddit_positive
-        self.reddit_negative = reddit_negative
+        self.official_name = official_name
 
     @staticmethod
     def split_keywords(keyword_string: str) -> Set[str]:
@@ -28,22 +26,17 @@ class IndexCompany(object):
 
     @classmethod
     def build_from_row(cls, row):
-
-        handle_columns = {v for k,v in row.items() if (v and "handle" in k.lower())}
-        handles = {h.strip().lstrip("@") for hc in handle_columns for h in hc.split(",")}
-        ticker = row["Ticker"]
-
+        handle_columns = {v for k, v in row.items() if (v and "twitter" in k.lower())}
+        handles = {h.strip().lstrip("@") for hc in handle_columns for h in hc.split(" ")}
         return cls(
-            company=row["Company Name"],
-            index=row["Sub Index"],
-            handles=handles,
-            ticker=ticker,
-            reddit_positive=cls.split_keywords(row["Reddit Positive"]),
-            reddit_negative=cls.split_keywords(row["Reddit Negative"]),
+            company=row["company"],
+            official_name=row["official_name"],
+            display_name=row["display_name"],
+            handles=handles
         )
 
     def __str__(self)->str:
-        return "Company: {company}({ticker}), index: {index}, handles: {handles} reddit: {reddit_positive}/{reddit_negative}".format(**self.__dict__)
+        return "Company: {display_name} ({official_name})".format(**self.__dict__)
 
     def __repr__(self)->str:
         return "<%s.%s %s" % (self.__class__.__module__, self.__class__.__name__, str(self))
