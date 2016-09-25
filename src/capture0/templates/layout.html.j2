@@ -9,6 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,15 +19,26 @@
     <![endif]-->
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        {% block header %}
-            <h1>Hello World!</h1>
+<div id="wrap">
+    <div class="container">
+        <div class="header">
+            {% block header %}
+                <h1>Hello World!</h1>
+            {% endblock %}
+        </div>
+        {% block body %}
+            Put your content here.
         {% endblock %}
+
+
     </div>
-    {% block body %}
-        Put your content here.
-    {% endblock %}
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">{{ messages.get("survey_footer") }}</p>
+        </div>
+    </footer>
+
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

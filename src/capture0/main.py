@@ -10,6 +10,7 @@ from capture0.forms.home_form import home_form_instance_factory
 from capture0.storage import store_data
 from capture0_data.company_info import get_random_company_names
 from capture0_data.online_handles import get_companies
+from capture0_data.online_messages import get_messages
 
 log = logging.getLogger(__name__)
 
@@ -23,24 +24,21 @@ def save(dataset: Mapping[str, Any]):
     log.info(flask.request.content_type)
     log.info(flask.request.data)
     data = json.loads(flask.request.data.decode("UTF-8"))
-
     store_data(dataset, data)
-
     return flask.make_response("OK")
-
-
 
 
 @app.route('/')
 def home_page():
     company_names = get_random_company_names()
     form = home_form_instance_factory(company_names)
-    return flask.render_template('index.html.j2', form=form)
+    return flask.render_template('index.html.j2', form=form, messages=get_messages())
 
 
 @app.route('/done', methods=["POST"])
 def done():
-    return flask.render_template('done.html.j2', request=flask.request)
+    store_data("empathy_companies", flask.request.form)
+    return flask.render_template('done.html.j2', messages=get_messages())
 
 
 @app.route('/<path:path>')

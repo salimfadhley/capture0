@@ -1,8 +1,10 @@
 import typing
 
 import flask_wtf
+from capture0.forms import countries
 from capture0_data.online_handles import IndexCompany
 from wtforms import RadioField
+from wtforms import SelectField
 from wtforms import StringField
 from wtforms.validators import DataRequired
 
@@ -16,7 +18,12 @@ EMPATHY_CHOICES = [
 
 
 class BaseHomeForm(flask_wtf.Form):
-    name = StringField('name', description="xxxx", validators=[DataRequired()])
+    name = StringField('name', description="What's your name?", validators=[DataRequired()])
+    email = StringField('email', description="Email address?", validators=[DataRequired()])
+    country = SelectField('country', description="Where do you live?", choices=countries.COUNTRIES)
+    most_empathic = StringField('most_empathic',
+                                description="In case we missed your favourite - who is the world's most empathic company?",
+                                validators=[DataRequired()])
 
 
 def home_form_instance_factory(companies: typing.List[IndexCompany]) -> BaseHomeForm:

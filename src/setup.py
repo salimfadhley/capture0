@@ -20,7 +20,7 @@ setup(
     packages=["capture0", "capture0_data"],
     package_data={"capture0_static": ["dist", "dist/*"]},
     zip_safe=False,
-    install_requires=['click', 'flask', 'cachetools', 'Flask-WTF'],
+    install_requires=['click', 'flask', 'cachetools', 'Flask-WTF', "markdown"],
     test_suite='nose.collector',
     tests_require=['mock', 'nose', 'coverage', 'unittest2'],
     entry_points=GLOBAL_ENTRY_POINTS,

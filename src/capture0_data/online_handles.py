@@ -3,7 +3,8 @@ import functools
 import logging
 import pprint
 from typing import Set, Optional
-from urllib.request import urlopen
+
+from capture0_data.utils import csv_lines
 
 HANDLES_URL = "https://docs.google.com/spreadsheets/d/103yky1HqNULD2awB4aZvzazSO8i-aVONWVa5C66XzBo/pub?gid=0&single=true&output=csv"
 
@@ -42,10 +43,7 @@ class IndexCompany(object):
         return "<%s.%s %s" % (self.__class__.__module__, self.__class__.__name__, str(self))
 
 
-def csv_lines():
-    with urlopen(HANDLES_URL) as f:
-        for line in f:
-            yield line.decode("utf-8")
+
 
 
 @functools.lru_cache(1)
@@ -56,7 +54,7 @@ def get_companies():
 
 
 def get_companies_generator():
-    reader = csv.DictReader(csv_lines())
+    reader = csv.DictReader(csv_lines(HANDLES_URL))
     for row in reader:
         yield (IndexCompany.build_from_row(row))
 
