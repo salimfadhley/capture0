@@ -1,16 +1,22 @@
 import json
 import logging
+import random
+import uuid
 from typing import Mapping, Any
 
 import click
+import flask
 from capture0.config import CONFIG
+from capture0.forms.home_form import home_form_instance_factory
 from capture0.storage import store_data
 from capture0_data.online_handles import get_companies
-import flask
 
 log = logging.getLogger(__name__)
 
+
 app = flask.Flask(__name__)
+app.secret_key = str(uuid.uuid1())
+
 
 @app.route('/save/<string:dataset>', methods=["POST"])
 def save(dataset: Mapping[str, Any]):
@@ -23,9 +29,18 @@ def save(dataset: Mapping[str, Any]):
     return flask.make_response("OK")
 
 
+def get_random_company_names():
+    raw_companies = get_companies()
+    random.shuffle(raw_companies)
+    random_companies = raw_companies[:20]
+
+    return [c.company for c in random_companies]
+
 @app.route('/')
 def home_page():
-    return flask.send_from_directory(CONFIG["STATIC"], "index.html")
+    company_names = get_random_company_names()
+    form = home_form_instance_factory(company_names)
+    return flask.render_template('index.html.j2', form=form)
 
 
 @app.route('/<path:path>')

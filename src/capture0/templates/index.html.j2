@@ -1,0 +1,25 @@
+{% extends "layout.html.j2" %}
+
+{% block header %}
+    <h1>Welcome to the Empathy Index Survey</h1>
+{% endblock %}
+
+{% block body %}
+    <p>Take our survey!</p>
+
+    <form method="POST" action="/done" class="form-group">
+        {{ form.csrf_token }}
+        {% for field_name, field in form._fields.items() %}
+            <div class="form-group">
+                {% if not field.flags.hidden %}
+                    {{ field.label }}
+                {% endif %}
+                {{ field(size=20) }}
+            </div>
+        {% endfor %}
+
+
+        <input type="submit" value="Go">
+    </form>
+
+{% endblock %}
