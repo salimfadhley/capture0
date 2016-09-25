@@ -7,10 +7,10 @@ from wtforms.validators import DataRequired
 
 EMPATHY_CHOICES = [
     (2, "very empathic"),
-    (1, "somewhat empathic"),
-    (0, "neutral"),
-    (-1, "somewhat unempathic"),
-    (-2, "very unempathic")
+    (1, "slightly empathic"),
+    (0, "I have no oponion"),
+    (-1, "slightly unempathic"),
+    (-2, "very unempathic"),
 ]
 
 
