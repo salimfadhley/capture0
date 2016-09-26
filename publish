@@ -7,7 +7,6 @@ git push --tags
 source ./build
 git commit -am "updated static stuff"
 cd src
-git push --exit-code
 python setup.py bdist_egg bdist_wheel upload
 
 
