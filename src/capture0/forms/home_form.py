@@ -6,7 +6,8 @@ from capture0_data.online_handles import IndexCompany
 from wtforms import RadioField
 from wtforms import SelectField
 from wtforms import StringField
-from wtforms.validators import DataRequired
+from wtforms.fields.html5 import EmailField
+from wtforms.validators import DataRequired, Email
 
 EMPATHY_CHOICES = [
     (2, "very empathic"),
@@ -19,8 +20,8 @@ EMPATHY_CHOICES = [
 
 class BaseHomeForm(flask_wtf.Form):
     name = StringField('name', description="What's your name?", validators=[DataRequired()])
-    email = StringField('email', description="Email address?", validators=[DataRequired()])
     country = SelectField('country', description="Where do you live?", choices=countries.COUNTRIES)
+    email = EmailField('email', description="Email address?", validators=[DataRequired(), Email()])
     most_empathic = StringField('most_empathic',
                                 description="In case we missed your favourite - who is the world's most empathic company?",
                                 validators=[DataRequired()])

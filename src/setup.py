@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-__VERSION__ = '0.1.29'
+__VERSION__ = '0.1.31'
 PROJECT_AUTHORS = "Salim Fadhley"
 PROJECT_EMAILS = 'salimfadhley@gmail.com'
 PROJECT_URL = "https://github.com/salimfadhley/capture0"
@@ -21,7 +21,7 @@ setup(
     package_data={"capture0": ["templates/*", "static/**"]},
     include_package_data=True,
     zip_safe=False,
-    install_requires=['click', 'flask', 'cachetools', 'Flask-WTF', "markdown"],
+    install_requires=['click', 'flask', 'cachetools', 'Flask-WTF', "markdown", "six"],
     test_suite='nose.collector',
     tests_require=['mock', 'nose', 'coverage', 'unittest2'],
     entry_points=GLOBAL_ENTRY_POINTS,
