@@ -18,7 +18,7 @@ setup(
     author=PROJECT_AUTHORS,
     author_email=PROJECT_EMAILS,
     packages=find_packages(),
-    package_data={"capture0": ["templates/*", "static/*"]},
+    package_data={"capture0": ["templates/*", "static/**"]},
     include_package_data=True,
     zip_safe=False,
     install_requires=['click', 'flask', 'cachetools', 'Flask-WTF', "markdown"],
