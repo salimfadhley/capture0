@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -x
 source ./venv/bin/activate
-git commit -am "automatic commit before build" || true
+git diff --quiet --exit-code --cached || git commit -m "automatic commit before build"
 bumpversion patch src/setup.py
 git push --tags
 source ./build
