@@ -1,12 +1,4 @@
 #!/usr/bin/env bash
 set -x
 set -e
-
-cd site
-npm install
-gulp clean:dist build
-cd ..
-
-cp -rv ./site/dist/  ./src/capture0_static
-
 pip install -e src
