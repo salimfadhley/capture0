@@ -1,6 +1,6 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
-__VERSION__ = '0.1.21'
+__VERSION__ = '0.1.23'
 PROJECT_AUTHORS = "Salim Fadhley"
 PROJECT_EMAILS = 'salimfadhley@gmail.com'
 PROJECT_URL = "https://github.com/salimfadhley/capture0"
@@ -17,7 +17,7 @@ setup(
     version=__VERSION__,
     author=PROJECT_AUTHORS,
     author_email=PROJECT_EMAILS,
-    packages=["capture0", "capture0_data"],
+    packages=find_packages(),
     package_data={"capture0_static": ["dist", "dist/*"]},
     zip_safe=False,
     install_requires=['click', 'flask', 'cachetools', 'Flask-WTF', "markdown"],
