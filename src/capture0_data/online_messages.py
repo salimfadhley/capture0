@@ -22,6 +22,9 @@ class Messages(object):
         except KeyError:
             return "no message: %s" % k
 
+    def __getitem__(self, k: str) -> str:
+        return self.get(k)
+
 
 class Message(object):
     def __init__(self, key: str, message: str):
@@ -43,15 +46,16 @@ class Message(object):
 
 
 def get_messages_generator(url):
+    log.warn("Fetching messages...")
     reader = csv.DictReader(csv_lines(url))
     for row in reader:
-        m = Message.build_from_row(row)
-        yield (m.key, m)
+        loaded_message = Message.build_from_row(row)
+        log.warn("Got message %r" % loaded_message)
+        yield (loaded_message.key, loaded_message)
 
 
 @functools.lru_cache(1)
 def get_messages(url=MESSAGES_URL):
-    log.warn("Cache has expired... fetching companies.")
     return Messages(dict(get_messages_generator(url)))
 
 

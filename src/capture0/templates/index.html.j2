@@ -7,19 +7,26 @@
 {% block body %}
     {{ messages.get("welcome_message") }}
 
-    <form method="POST" action="/done" class="form-group">
-        {{ form.csrf_token }}
-        {% for field_name, field in form._fields.items() %}
-            <div class="form-group">
+    <ul>
+        <form method="POST" action="/done" class="form-group">
+            {{ form.csrf_token }}
+            {% for field_name, field in form._fields.items() %}
                 {% if not field.flags.hidden %}
-                    {{ field.description or field.label }}
+                    <li>
+                        <div class="form-group">
+                            {{ field.description or field.label }}
+                            {{ field() }}
+                        </div>
+                    </li>
+                {% else %}
+                    {{ field() }}
                 {% endif %}
-                {{ field() }}
-            </div>
-        {% endfor %}
+
+            {% endfor %}
 
 
-        <input type="submit" value="All done!">
-    </form>
+            <input type="submit" value="All done!">
+        </form>
+    </ul>
 
 {% endblock %}

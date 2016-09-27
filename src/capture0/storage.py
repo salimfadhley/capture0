@@ -1,3 +1,4 @@
+import datetime
 import json
 import logging
 import os
@@ -5,6 +6,7 @@ import pprint
 import uuid
 from typing import Mapping, List
 
+import pytz as pytz
 from capture0.config import CONFIG
 
 log = logging.getLogger(__name__)
@@ -16,6 +18,7 @@ def store_data(dataset: str, record: Mapping):
     id = str(uuid.uuid1())
     dataset_dir = os.path.join(CONFIG["SAVE_DIR"], dataset)
     record["uuid"] = id
+    record["timestamp"] = datetime.datetime.now(tz=pytz.utc).isoformat(" ")
 
     if not os.path.exists(dataset_dir):
         os.makedirs(dataset_dir)
