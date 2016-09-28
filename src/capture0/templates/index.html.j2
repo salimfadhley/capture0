@@ -7,17 +7,18 @@
 {% block body %}
     {{ messages.get("welcome_message") }}
 
-    <ul>
         <form method="POST" action="/done" class="form-group">
             {{ form.csrf_token }}
             {% for field_name, field in form._fields.items() %}
                 {% if not field.flags.hidden %}
-                    <li>
-                        <div class="form-group">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
                             {{ field.description or field.label }}
                             {{ field() }}
                         </div>
-                    </li>
+                        {##}
+                        </div>
+
                 {% else %}
                     {{ field() }}
                 {% endif %}
@@ -25,8 +26,8 @@
             {% endfor %}
 
 
-            <input type="submit" value="All done!">
+            <input type="submit" value="All done!" class="btn btn-success">
         </form>
-    </ul>
+
 
 {% endblock %}

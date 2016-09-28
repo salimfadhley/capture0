@@ -20,7 +20,7 @@ setup(
     packages=find_packages(),
     package_data={"capture0": [
         "templates/**",
-        "static/**",
+        "static/**/*",
         "static/images/**",
         "static/css/**",
         "static/fonts/**",

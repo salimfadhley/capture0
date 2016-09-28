@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -x
 set -e
-pip install -e src
+./venv/bin/pip install -e src

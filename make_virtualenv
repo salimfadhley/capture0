@@ -1,4 +1,4 @@
-virtualenv ./venv --python=`which python3.5` --clear
-source ./venv/bin/activate
-pip install --upgrade bumpversion
+#!/usr/bin/env bash
+virtualenv ./venv --python=`which python3.5` --clear --prompt="(capture0)"
+./venv/bin/pip install --upgrade bumpversion
 ./build
