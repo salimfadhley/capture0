@@ -8,8 +8,7 @@ from capture0_data.online_messages import get_messages
 from wtforms import RadioField
 from wtforms import SelectField
 from wtforms import StringField
-from wtforms.fields.html5 import EmailField
-from wtforms.validators import DataRequired, Email
+from wtforms.validators import DataRequired
 
 
 class BaseHomeForm(flask_wtf.Form):
@@ -17,7 +16,6 @@ class BaseHomeForm(flask_wtf.Form):
 
     name = StringField('name', description=messages["question_name"], validators=[DataRequired()])
     country = SelectField('country', description=messages["question_country"], choices=countries.COUNTRIES)
-    email = EmailField('email', description=messages["question_email"], validators=[DataRequired(), Email()])
 
 
 
