@@ -13,10 +13,8 @@ from wtforms.validators import DataRequired
 
 class BaseHomeForm(flask_wtf.Form):
     messages = get_messages()
-
     name = StringField('name', description=messages["question_name"], validators=[DataRequired()])
     country = SelectField('country', description=messages["question_country"], choices=countries.COUNTRIES)
-
 
 
 def home_form_instance_factory(companies: typing.List[IndexCompany]) -> BaseHomeForm:
