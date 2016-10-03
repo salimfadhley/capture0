@@ -8,13 +8,19 @@ from capture0_data.online_messages import get_messages
 from wtforms import RadioField
 from wtforms import SelectField
 from wtforms import StringField
-from wtforms.validators import DataRequired
+from wtforms.fields.html5 import EmailField
+from wtforms.validators import DataRequired, Email
 
 
 class BaseHomeForm(flask_wtf.Form):
     messages = get_messages()
     name = StringField('name', description=messages["question_name"], validators=[DataRequired()])
     country = SelectField('country', description=messages["question_country"], choices=countries.COUNTRIES)
+    name = EmailField('name', description=messages["question_email"], validators=[Email()])
+
+
+def form_empathy_question(company_name):
+    return "How empathic is <b>%s</b>?" % company_name
 
 
 def home_form_instance_factory(companies: typing.List[IndexCompany]) -> BaseHomeForm:
@@ -26,11 +32,14 @@ def home_form_instance_factory(companies: typing.List[IndexCompany]) -> BaseHome
         (0, messages["option_0"]),
         (-1, messages["option_-1"]),
         (-2, messages["option_-2"]),
+        (None, messages["option_unknown"]),
     ]
 
     new_form_elements = OrderedDict({
-                                        c.company: RadioField(c.company, description=c.display_name, validators=[DataRequired()],
-                              choices=EMPATHY_CHOICES)
+                                        c.company: RadioField(c.company,
+                                                              description=form_empathy_question(c.display_name),
+                                                              validators=[DataRequired()],
+                                                              choices=EMPATHY_CHOICES)
                                         for c in companies})
 
     new_form = type("frm0", (BaseHomeForm,), new_form_elements)
